@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "6395a17b-a973-42f5-a2ff-38ce90de56a1",
+		"name": "api-edunlima",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47482669",
+		"_collection_link": "https://eduardo-nlima-6991107.postman.co/workspace/eduardo.nlima's-Workspace~20cf9167-63b0-4c44-8e7a-cc0bc50bb5ea/collection/47482669-6395a17b-a973-42f5-a2ff-38ce90de56a1?action=share&source=collection_link&creator=47482669"
+	},
+	"item": [
+		{
+			"name": "bebidas",
+			"item": [
+				{
+					"name": "obterBebidaPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/bebidas/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bebidas",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obterListaBebidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/bebidas/lista",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bebidas",
+								"lista"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletarBebida",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/bebidas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bebidas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alterarBebida",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/bebidas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bebidas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incluirBebida",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/bebidas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bebidas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inativarBebida",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/bebidas/1/inativar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bebidas",
+								"1",
+								"inativar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
