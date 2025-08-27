@@ -1,0 +1,3 @@
+eduardo;23;coca-cola;sprite
+pamela;23;fanta laranja;fanta uva
+alvaro;23;pepsi;guarana

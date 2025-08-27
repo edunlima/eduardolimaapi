@@ -11,16 +11,11 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 public class Bebida extends Produto {
 
-	
+	@Transient
 	private String tipo;
 
+	@Transient
 	private int codigo;
-	
-	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "fornecedor_id")
-	@Valid
-	private Fornecedor fornecedor;
-	
 	
 	public int getCodigo() {
 		return codigo;
@@ -34,13 +29,7 @@ public class Bebida extends Produto {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public Fornecedor getFornecedor() {
-		return fornecedor;
-	}
-	public void setFornecedor(Fornecedor fornecedor) {
-		this.fornecedor = fornecedor;
-	}
-
+	
 	@Override
 	public String toString()
 	{

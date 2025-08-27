@@ -11,6 +11,7 @@ import br.edu.infnet.eduardolimaapi.model.domain.Bebida;
 import br.edu.infnet.eduardolimaapi.model.exceptions.BebidaInvalidaException;
 import br.edu.infnet.eduardolimaapi.model.exceptions.BebidaNaoEncontradaException;
 import br.edu.infnet.eduardolimaapi.model.repository.BebidaRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class BebidaService implements CrudService<Bebida, Integer> {
@@ -34,7 +35,9 @@ public class BebidaService implements CrudService<Bebida, Integer> {
 		
 	}
 	
+	
 	@Override
+	@Transactional
 	public Bebida alterar(Integer id, Bebida bebida) {
 		
 		validarId(id);
@@ -47,6 +50,7 @@ public class BebidaService implements CrudService<Bebida, Integer> {
 	}
 
 	@Override
+	@Transactional
 	public Bebida incluir(Bebida bebida) {
 		
 		validarBebida(bebida);
@@ -56,16 +60,7 @@ public class BebidaService implements CrudService<Bebida, Integer> {
 
 
 	@Override
-	public Bebida buscarPorId(Integer id) {
-		
-		validarId(id);
-		
-		Bebida bebida = bebidaRepository.findById(id).orElseThrow(() -> new BebidaNaoEncontradaException("alguma coisa ai pai"));  
-		return bebida;
-	}
-
-
-	@Override
+	@Transactional
 	public void excluir(Integer id) {
 		
 		validarId(id);
@@ -73,6 +68,7 @@ public class BebidaService implements CrudService<Bebida, Integer> {
 		bebidaRepository.deleteById(id);
 	}
 	
+	@Transactional
 	public Bebida indisponibilizar(Integer id) {
 		
 		validarId(id);
@@ -97,6 +93,16 @@ public class BebidaService implements CrudService<Bebida, Integer> {
 		return bebidaRepository.findAll();
 				
 	}
+	
+	@Override
+	public Bebida buscarPorId(Integer id) {
+		
+		validarId(id);
+		
+		Bebida bebida = bebidaRepository.findById(id).orElseThrow(() -> new BebidaNaoEncontradaException("alguma coisa ai pai"));  
+		return bebida;
+	}
+
 
 	
 	

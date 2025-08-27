@@ -1,9 +1,17 @@
 package br.edu.infnet.eduardolimaapi.model.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -28,6 +36,12 @@ public abstract class Produto {
 	
 	@NotNull(message = "É necessário indicar se está dentro da validade.")
 	private boolean dentroDaValidade;
+	
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "fornecedor_id")
+	@Valid
+	private Fornecedor fornecedor;
+	
 	
 	public Integer getId() {
 		return id;
@@ -59,8 +73,12 @@ public abstract class Produto {
 	public void setDentroDaValidade(boolean dentroDaValidade) {
 		this.dentroDaValidade = dentroDaValidade;
 	}
-	
-	
+	public Fornecedor getFornecedor() {
+		return fornecedor;
+	}
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
+	}
 	@Override
 	public String toString()
 	{
