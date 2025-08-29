@@ -30,9 +30,6 @@ private final FornecedorService fornecedorService;
 		this.fornecedorService = fornecedorService;
 	}
 	
-	//Professor, tentei d todo jeito fazer isso funcionar sem o @Transactional mas não rolou
-	//ficava dando detached entity passed to persist
-	//enfim, ta funcionando, perdão o comentario
 	@Override
 	@Transactional
 	public void run(ApplicationArguments args) throws Exception {
@@ -70,12 +67,6 @@ private final FornecedorService fornecedorService;
 		continue;
 	} 
 	
-/*	Fornecedor fornecedor = new Fornecedor();
-	
-	fornecedor.setNome("Eduardo");
-	fornecedor.setEmail("eduardo@lima.com");
-	fornecedor.setCodigo(8932);*/
-	
 	Bebida bebida = new Bebida();
 	
 	bebida.setNome(valores[0]);
@@ -85,7 +76,6 @@ private final FornecedorService fornecedorService;
 	bebida.setTipo(valores[4]);
 	
 	bebida.setFornecedor(fornecedor);
-//	bebida.setCodigo(Integer.valueOf(valores[5]));
 	
 	try {
 		
