@@ -5,15 +5,19 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Fornecedor {
@@ -32,9 +36,12 @@ public class Fornecedor {
 	@Email(message = "O email é invalido.")
 	private String email;
 	
-	@OneToMany(cascade = CascadeType.PERSIST, mappedBy = "fornecedor")
-	@Valid
-	private List<Bebida> listaBebidas = new ArrayList<>();
+	@NotNull(message = "É necessario um codigo de identificação.")
+	@Digits(integer = 4, fraction = 0, message = "O codigo deve ter 4 numeros.")
+	private Integer codigo;
+	
+	@OneToMany(mappedBy = "fornecedor", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+	private List<Bebida> bebidas = new ArrayList<Bebida>();
 	
 	public Integer getId() {
 		return id;
@@ -60,12 +67,17 @@ public class Fornecedor {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public List<Bebida> getListaBebidas() {
-		return listaBebidas;
+	public Integer getCodigo() {
+		return codigo;
 	}
-	public void setListaBebidas(List<Bebida> listaBebidas) {
-		this.listaBebidas = listaBebidas;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+	public List<Bebida> getListaBebidas() {
+		return bebidas;
+	}
+	public void setListaBebidas(List<Bebida> bebidas) {
+		this.bebidas = bebidas;
 	}
 	@Override
 	public String toString()

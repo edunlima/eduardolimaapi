@@ -1,3 +1,4 @@
-Coca-cola;5;true;true;refri;5234;Eduardo;11956764325;eduardo@lima.com
-Cha;2.5;true;false;cha;6346;Geraldo;;pamela@franca.com
-Guarana;3.2;false;false;refri;8932;Roberto;11978099245;roberto@alencar.com
+Coca-cola;5;true;true;refri;5234
+Suco de laranja;2.50;true;true;suco;5234
+Cha;2.5;true;false;cha;6346
+Guarana;3.2;false;false;refri;8932

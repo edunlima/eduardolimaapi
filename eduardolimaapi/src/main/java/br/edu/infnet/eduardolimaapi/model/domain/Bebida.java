@@ -33,7 +33,7 @@ public class Bebida extends Produto {
 	@Override
 	public String toString()
 	{
-		return String.format(" - %s - %s - %d", super.toString(), tipo, codigo);
+		return String.format(" - %s - %s", super.toString(), tipo);
 	}
 	
 }

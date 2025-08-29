@@ -1,0 +1,3 @@
+Eduardo;11956764325;eduardo@lima.com;8932
+Geraldo;;pamela@franca.com;6346
+Roberto;11978099245;roberto@alencar.com;5234

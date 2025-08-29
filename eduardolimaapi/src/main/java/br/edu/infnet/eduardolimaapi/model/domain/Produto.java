@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -37,9 +38,8 @@ public abstract class Produto {
 	@NotNull(message = "É necessário indicar se está dentro da validade.")
 	private boolean dentroDaValidade;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "fornecedor_id")
-	@Valid
 	private Fornecedor fornecedor;
 	
 	
