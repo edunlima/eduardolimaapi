@@ -22,6 +22,26 @@ public class ItemPedido {
 	
 	public BigDecimal calcularSubTotal()
 	{	
+		if(quantidade == 0)
+		{
+			return BigDecimal.ZERO;
+		}
+		
+		if(quantidade < 0)
+		{
+			return BigDecimal.ZERO;
+		}
+		
+		if(item.getPreco() == null)
+		{
+			return BigDecimal.ZERO;
+		}
+		
+		if(item.getNome() == null && item.getPreco() == null)
+		{
+			return BigDecimal.ZERO;
+		}
+		
 		BigDecimal resultado = item.getPreco();
 		return resultado.multiply(new BigDecimal(quantidade));		
 	}
