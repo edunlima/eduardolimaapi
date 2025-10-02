@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "9f470852-d1f3-4a2c-9011-7544657958cc",
+		"name": "Projeto-SpringBoot",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "48924414",
+		"_collection_link": "https://edunlima-7591060.postman.co/workspace/e442bdbf-aaec-4c57-808c-a1d2981a6d88/collection/48924414-9f470852-d1f3-4a2c-9011-7544657958cc?action=share&source=collection_link&creator=48924414"
+	},
+	"item": [
+		{
+			"name": "Bebidas-Arquitetura",
+			"item": [
+				{
+					"name": "alterarBebida",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:8080/bebidas/alterar/margarita"
+					},
+					"response": []
+				},
+				{
+					"name": "disponibilizarBebida",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "http://localhost:8080/bebidas/disponibilizar/id"
+					},
+					"response": []
+				},
+				{
+					"name": "indisponibilizarBebida",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "http://localhost:8080/bebidas/indisponibilizar/id"
+					},
+					"response": []
+				},
+				{
+					"name": "excluirBebida",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/bebidas/excluir/id"
+					},
+					"response": []
+				},
+				{
+					"name": "obterListaBebidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/bebidas/lista"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "consultarBebidas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "adminPass",
+						"username": "admin"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/bebidas",
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "incluirBebidas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Margarita\",\n    \"preco\": 2.5,\n    \"categoriaDrink\": \"Ordinary Drink\",\n    \"tipoDeCopo\": \"Cocktail glass\",\n    \"ingredientes\": [\n        \"Tequila\",\n        \"Triple sec\",\n        \"Lime juice\",\n        \"Salt\"\n    ],\n    \"medidasIngredientes\": [\n        \"1 1/2 oz \",\n        \"1/2 oz \",\n        \"1 oz \"\n    ],\n    \"instrucoes\": \"Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail.\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/bebidas/incluir",
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "admin",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "userPass",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "user",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
